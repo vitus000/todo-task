@@ -1,0 +1,46 @@
+.sign-up-page {
+  width: 500px;
+  margin: 10% auto 0;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 10px 19px 2px rgba(0, 0, 0, 0.3);
+
+  .page-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+  }
+
+  .page-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+      font-size: 2em;
+      line-height: 2;
+      font-weight: bold;
+    }
+
+    .sub-title {
+      font-size: 1.5em;
+      line-height: 1.5;
+      margin: 25px 0;
+    }
+  }
+
+  .page-content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    .form-unit {
+      width: 100%;
+      margin-bottom: 26px;
+
+      .mat-form-field {
+        width: 100%;
+      }
+    }
+  }
+}

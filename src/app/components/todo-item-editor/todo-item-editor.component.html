@@ -1,0 +1,42 @@
+<div class="todo-editor-dialog">
+    <div class="modal-header">
+        <h4>
+            <span *ngIf="mode === todoItemEditorMode.create">Create TODO</span>
+            <span *ngIf="mode === todoItemEditorMode.update">Update TODO</span>
+        </h4>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="formGroup">
+            <div class="form-unit">
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Todo title" formControlName="title">
+                    <mat-error>Title have to contain 1-{{formGroupValidators.todoTitleMaxLength}} characters
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-unit">
+                <mat-slide-toggle class="v-align-middle"
+                                  formControlName="completed"></mat-slide-toggle>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button mat-flat-button (click)="close()">
+            Cancel
+        </button>
+        <button mat-flat-button
+                *ngIf="mode === todoItemEditorMode.create"
+                color="primary"
+                [disabled]="formGroup.invalid"
+                (click)="createTodoItem()">
+            Create
+        </button>
+        <button mat-flat-button
+                *ngIf="mode === todoItemEditorMode.update"
+                color="primary"
+                [disabled]="formGroup.invalid"
+                (click)="updateTodoItem()">
+            Update
+        </button>
+    </div>
+</div>

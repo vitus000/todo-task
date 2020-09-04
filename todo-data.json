@@ -1,0 +1,11 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "name": "TODO Item 1",
+      "description": "Description of item 1. There must a full description of the task that should be done.",
+      "createdAt": 1597580174919,
+      "editedAt": 1597600802605
+    }
+  ]
+}

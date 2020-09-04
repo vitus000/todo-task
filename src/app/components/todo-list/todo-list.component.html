@@ -1,0 +1,48 @@
+<div class="todo-list-page">
+    <div class="page-header">
+        <div class="title">TODO list</div>
+        <div class="controls">
+            <button mat-flat-button (click)="createTodo()" color="primary">Create TODO</button>
+        </div>
+    </div>
+    <div class="page-content">
+        <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+        <table *ngIf="!isLoading" mat-table [dataSource]="todos" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="number">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef> Title </th>
+                <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef> Status </th>
+                <td mat-cell *matCellDef="let element"> <span [ngClass]="element.completed ? 'greenColor' : 'orangeColor'">{{element.completed ? 'Completed' : 'In progress'}}</span> </td>
+            </ng-container>
+
+            <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef> </th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-flat-button color="accent" (click)="updateTodo(element); $event.stopPropagation();">Edit</button>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef> </th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-flat-button (click)="deleteTodo(element.id); $event.stopPropagation();" color="warn">Delete</button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+    </div>
+</div>
+
+

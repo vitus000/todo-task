@@ -1,0 +1,68 @@
+<div class="sign-up-page">
+    <div class="page-header">
+        <div class="title">Welcome to TODO app</div>
+        <div class="sub-title">Sign up</div>
+    </div>
+
+    <div class="page-content">
+        <form [formGroup]="formGroup">
+            <div class="form-unit">
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Name" formControlName="name">
+                    <mat-error>Field is required</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-unit">
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Username" formControlName="username">
+                    <mat-error>Field is required</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-unit">
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Email" formControlName="email">
+                    <mat-error *ngIf="formGroup.controls['email'].hasError('email')">Invalid email</mat-error>
+                    <mat-error *ngIf="formGroup.controls['email'].hasError('required')">Field is required</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-unit">
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Street" formControlName="street">
+                    <mat-error>Field is invalid</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-unit">
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Suite" formControlName="suite">
+                    <mat-error>Field is invalid</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-unit">
+                <mat-form-field>
+                    <input matInput type="text" placeholder="City" formControlName="city">
+                    <mat-error>Field is invalid</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-unit">
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Phone number" formControlName="phone">
+                    <mat-error>{{formGroup.controls['phone'].hasError('required') ? 'Field is required' : 'Invalid phone'}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-unit">
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Zipcode" formControlName="zipcode">
+                    <mat-error>{{formGroup.controls['zipcode'].hasError('required') ? 'Field is required' : 'Invalid zipcode'}}</mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+    </div>
+    <div class="page-footer">
+        <button mat-flat-button
+                color="primary"
+                [disabled]="formGroup.invalid"
+                (click)="signUp()">
+            Sign up
+        </button>
+    </div>
+</div>

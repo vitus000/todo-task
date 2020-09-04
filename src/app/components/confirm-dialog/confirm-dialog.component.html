@@ -1,0 +1,20 @@
+<div class="confirmation-dialog">
+    <div class="modal-header">
+        <h4>
+            <span>Confirm your action</span>
+        </h4>
+    </div>
+    <div class="modal-body">
+        {{data?.caption ? data.caption : "Are you sure?"}}
+    </div>
+    <div class="modal-footer">
+        <button mat-flat-button (click)="close()">
+            Cancel
+        </button>
+        <button mat-flat-button
+                color="primary"
+                (click)="onConfirm()">
+            Confirm
+        </button>
+    </div>
+</div>
